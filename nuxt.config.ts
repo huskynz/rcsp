@@ -9,15 +9,6 @@ export default defineNuxtConfig({
   },
   modules: [""],
   pages: true,
-  store: {
-    namespaced: true,
-    state: {},
-    mutations: {},
-    actions: {},
-    modules: {
-      auth: '~/store/auth.js' // Specify the correct path to your auth module
-    }
-  },
   router: {
     middleware: 'redirectDist',
   },
