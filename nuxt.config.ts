@@ -9,12 +9,27 @@ export default defineNuxtConfig({
   },
   modules: [""],
   pages: true,
-  router: {
-    extendRoutes(routes, resolve) {
-      routes.push({
-        path: '/go',
-        component: resolve(__dirname, 'pages/go.vue') // Create a new redirect.vue page
-      });
+  store: {
+    namespaced: true,
+    state: {},
+    mutations: {},
+    actions: {},
+    modules: {
+      auth: '~/store/auth.js' // Specify the correct path to your auth module
     }
-  }
+  },
+  router: {
+    middleware: 'redirectDist',
+  },
+
+  // Define a custom middleware for redirection
+  middleware: {
+    redirectDist({ route, redirect }) {
+      if (route.path === '/go') {
+        const distParam = route.query.dist || '';
+        const redirectPath = `/go/_dist?dist=${distParam}`;
+        redirect(redirectPath);
+      }
+    },
+  },
 })
