@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-      <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+      <p>&copy; 2022 - 2023 - Made and designed by HuskyNZ | &copy; 2017 - 2023 - Rolleston college</p>
     </footer>
   </template>
   
